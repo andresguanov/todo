@@ -1,7 +1,8 @@
 .TodoSearch {
 	min-height: 5rem;
 	display: flex;
-
+	max-width: 1024px;
+	margin: 0 auto;
 	justify-content: space-around;
 	align-items: center;
 	transition: all var(--transition);

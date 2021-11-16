@@ -1,9 +1,11 @@
 import "./TodoCounter.css"
 
-const TodoCounter = () => {
+const TodoCounter = ({ todos }) => {
+
+    const completedTodos = todos.filter(todo => todo.completed)
     return (
-        <main class="TodoCounter">
-            <h2>You have completed 5 of 5 toDos</h2>
+        <main className="TodoCounter">
+            <h2>You have completed {completedTodos.length} of {todos.length} ToDo's</h2>
         </main>
     )
 }

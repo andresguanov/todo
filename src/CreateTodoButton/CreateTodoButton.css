@@ -1,0 +1,31 @@
+.CreateTodoButton {
+	position: absolute;
+	bottom: 1.5rem;
+	left: calc(50% - 40px);
+	font-size: 3.5rem;
+	width: 4.5rem;
+	height: 4.5rem;
+	padding: 0.5rem;
+	border-radius: 15px;
+	background-color: white;
+	color: var(--bg-color);
+
+	transition: all var(--transition);
+}
+
+.CreateTodoButton:hover {
+	animation: todoButton 1s;
+
+	transition: all var(--transition);
+	color: white;
+	background-color: var(--green);
+}
+
+@keyframes todoButton {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(90deg);
+	}
+}

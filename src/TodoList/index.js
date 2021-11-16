@@ -1,7 +1,11 @@
 import "./TodoList.css"
 
-const TodoList = () => {
-    return ("")
+const TodoList = ({ children }) => {
+    return (
+        <ul className="TodoList">
+            {children}
+        </ul>
+    )
 }
 
 export { TodoList }

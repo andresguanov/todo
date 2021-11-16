@@ -5,6 +5,8 @@
 	--bg-color: #282c34;
 	--primary-color: #fff;
 	--secondary-color: #61dafb;
+	--green: #008000;
+	--red: #f00;
 	--primary-shadow: #8b8eaf;
 	--secondary-shadow: #a17a69;
 	--line-height: 1.7rem;
@@ -33,6 +35,11 @@ a {
 
 a:hover {
 	color: var(--secondary-color);
+}
+
+button {
+	background-color: transparent;
+	border: none;
 }
 
 body {
