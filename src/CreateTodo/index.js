@@ -1,14 +1,20 @@
 import "./CreateTodo.css"
 
-const CreateTodo = () => {
+const CreateTodo = ({
+    onConfirmTodo,
+    onCreateTodo,
+    setNewTodo,
+}) => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
+
+
     }
 
-    // const handleClick = (e) => {
-    //     console.log("hola")
-    // }
+    const handleChange = (e) => {
+        setNewTodo(e.target.value)
+    }
 
     return (
         <div className="CreateTodo">
@@ -21,17 +27,21 @@ const CreateTodo = () => {
                 <input
                     id="todoInput"
                     className="todoInput"
+                    onChange={handleChange}
+
                     type="text"
                     placeholder="Create your To Do here ..."
                 />
                 <div className="buttons">
                     <button
                         className="buttons__cancel"
+                        onClick={onConfirmTodo}
                     >
                         <span>Cancel</span>
                     </button>
                     <button
                         className="buttons__add"
+                        onClick={onCreateTodo}
                     >
                         <span>Add</span>
                     </button>

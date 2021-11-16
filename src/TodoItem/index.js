@@ -1,4 +1,3 @@
-import { ConfirmDelete } from '../ConfirmDelete';
 
 import "./TodoItem.css"
 

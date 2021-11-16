@@ -1,21 +1,25 @@
 .CreateTodoButton {
-	position: absolute;
-	bottom: 1.5rem;
-	left: calc(50% - 40px);
-	font-size: 3.5rem;
+	text-align: right;
+	width: 100%;
+	height: auto;
+	margin: 0 auto;
+	padding: 1rem;
+	max-width: 600px;
+}
+
+.CreateTodoButton button {
 	width: 4.5rem;
 	height: 4.5rem;
 	padding: 0.5rem;
+	font-size: 3.5rem;
 	border-radius: 15px;
 	background-color: white;
 	color: var(--bg-color);
-
 	transition: all var(--transition);
 }
 
-.CreateTodoButton:hover {
+.CreateTodoButton button:hover {
 	animation: todoButton 1s;
-
 	transition: all var(--transition);
 	color: white;
 	background-color: var(--green);

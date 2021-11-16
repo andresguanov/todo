@@ -6,7 +6,7 @@
 	top: 0;
 	left: 0;
 	width: 100vw;
-	height: 90vh;
+	height: 95vh;
 	background-color: rgba(0, 0, 0, 0.8);
 }
 
@@ -60,13 +60,11 @@
 }
 
 .CreateTodo form .buttons__cancel:hover {
-	background-color: var(--red);
-	color: #fff;
+	background-color: #ccc;
 }
 
 @media (min-width: 400px) {
 	.CreateTodo {
-		width: 100vw;
 		height: 100vh;
 	}
 }

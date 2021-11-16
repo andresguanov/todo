@@ -1,12 +1,18 @@
 import "./CreateTodoButton.css"
 
-const CreateTodoButton = () => {
+const CreateTodoButton = ({
+    onCreateTodo,
+}) => {
     return (
 
+        <div className="CreateTodoButton">
+            <button
+                onClick={onCreateTodo}
+            >
+                <ion-icon name="add-outline"></ion-icon>
+            </button>
 
-        <button className="CreateTodoButton">
-            <ion-icon name="add-outline"></ion-icon>
-        </button>
+        </div>
 
 
     )

@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { ConfirmDelete } from '../ConfirmDelete';
 import { CreateTodo } from '../CreateTodo';
 import { CreateTodoButton } from '../CreateTodoButton';
-import { data } from '../data';
 import { TodoCounter } from '../TodoCounter';
 import { TodoItem } from '../TodoItem';
 import { TodoList } from '../TodoList';
@@ -12,15 +11,17 @@ import './App.css';
 
 function App() {
   const [searchValue, setSearchValue] = useState("")
-  const [todos, setTodos] = useState([...data])
+  const [todos, setTodos] = useState([])
   const [deleted, setDeleted] = useState(false)
+  const [created, setCreated] = useState(false)
   const [indexTodo, setIndex] = useState("")
+  const [newTodo, setNewTodo] = useState("")
 
 
 
   let listTodos = [...todos]
   searchValue && (
-    listTodos = data.filter(todo => (
+    listTodos = todos.filter(todo => (
       todo.title.includes(searchValue)
     ))
 
@@ -59,6 +60,24 @@ function App() {
 
   }
 
+  const handleConfirmTodo = () => {
+    created ? setCreated(false) : setCreated(true)
+  }
+
+  const handleCreateTodo = () => {
+    setTodos([
+      ...todos,
+      {
+        id: todos.length,
+        title: newTodo,
+        completed: false
+      }
+    ])
+    setCreated(false)
+  }
+
+
+
   return (
     <div className="App">
       <TodoSearch
@@ -71,32 +90,50 @@ function App() {
 
       <TodoList >
         {
+          (listTodos.length > 0)
+            ? (
+              listTodos.map(todo => (
+                <TodoItem
+                  key={todo.id}
+                  searchValue={searchValue}
+                  todo={todo}
+                  onCompletedTodo={handleCompletedTodo}
+                  onConfirmDelete={handleConfirmDelete}
 
-          listTodos.map(todo => (
-            <TodoItem
-              key={todo.id}
-              searchValue={searchValue}
-              todo={todo}
-              onCompletedTodo={handleCompletedTodo}
-              onConfirmDelete={handleConfirmDelete}
 
+                />
 
-            />
+              )))
+            : (
+              <h3>Create your first Todo ...
+              </h3>
 
-          ))
-
+            )
         }
+
+
+
+
+
       </TodoList>
-      <CreateTodoButton />
+      <CreateTodoButton onCreateTodo={handleConfirmTodo} />
       {
-        deleted && <ConfirmDelete
+        deleted
+        && <ConfirmDelete
           onDeletedTodo={handleDeleteTodo}
           indexTodo={indexTodo}
           todos={todos}
           setTodos={setTodos}
         />
       }
-      {/*<CreateTodo />*/}
+      {created
+        && <CreateTodo
+          onConfirmTodo={handleConfirmTodo}
+          onCreateTodo={handleCreateTodo}
+          setNewTodo={setNewTodo}
+
+        />
+      }
 
 
 
