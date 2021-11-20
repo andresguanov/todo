@@ -9,14 +9,27 @@ import { TodoSearch } from '../TodoSearch';
 
 import './App.css';
 
+
 function App() {
+  const localStorageTodos = localStorage.getItem('TODOS_V1')
+
+  let parsedTodos;
+
+  if (!localStorageTodos) {
+    localStorage.setItem('TODOS_V1', JSON.stringify([]))
+    parsedTodos = []
+  } else {
+    parsedTodos = JSON.parse(localStorageTodos)
+  }
+
   const [searchValue, setSearchValue] = useState("")
-  const [todos, setTodos] = useState([])
+  const [todos, setTodos] = useState(parsedTodos)
   const [deleted, setDeleted] = useState(false)
   const [created, setCreated] = useState(false)
   const [indexTodo, setIndex] = useState("")
   const [newTodo, setNewTodo] = useState("")
 
+  localStorage.setItem('TODOS_V1', JSON.stringify(todos))
 
 
   let listTodos = [...todos]
