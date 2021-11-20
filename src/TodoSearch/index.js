@@ -10,8 +10,6 @@ const TodoSearch = ({
 
     const handleChange = (e) => {
         setSearchValue(e.target.value)
-
-
     }
 
 

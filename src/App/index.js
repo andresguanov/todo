@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { ConfirmDelete } from '../ConfirmDelete';
 import { CreateTodo } from '../CreateTodo';
 import { CreateTodoButton } from '../CreateTodoButton';
+import { useLocalStorage } from '../hooks/useLocalStorage';
 import { TodoCounter } from '../TodoCounter';
 import { TodoItem } from '../TodoItem';
 import { TodoList } from '../TodoList';
@@ -10,29 +11,21 @@ import { TodoSearch } from '../TodoSearch';
 import './App.css';
 
 
-function App() {
-  const localStorageTodos = localStorage.getItem('TODOS_V1')
 
-  let parsedTodos;
 
-  if (!localStorageTodos) {
-    localStorage.setItem('TODOS_V1', JSON.stringify([]))
-    parsedTodos = []
-  } else {
-    parsedTodos = JSON.parse(localStorageTodos)
-  }
+const App = () => {
 
+
+  const [todos, setTodos] = useLocalStorage("TODOS_V1")
   const [searchValue, setSearchValue] = useState("")
-  const [todos, setTodos] = useState(parsedTodos)
   const [deleted, setDeleted] = useState(false)
   const [created, setCreated] = useState(false)
   const [indexTodo, setIndex] = useState("")
   const [newTodo, setNewTodo] = useState("")
 
-  localStorage.setItem('TODOS_V1', JSON.stringify(todos))
-
 
   let listTodos = [...todos]
+
   searchValue && (
     listTodos = todos.filter(todo => (
       todo.title.includes(searchValue)
@@ -130,8 +123,7 @@ function App() {
 
       </TodoList>
       <CreateTodoButton onCreateTodo={handleConfirmTodo} />
-      {
-        deleted
+      {deleted
         && <ConfirmDelete
           onDeletedTodo={handleDeleteTodo}
           indexTodo={indexTodo}
