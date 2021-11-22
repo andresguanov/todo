@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-const useLocalStorage = (key, initialValue = []) => {
+const useLocalStorage = (key, initialValue) => {
 
     const localStorageKey = localStorage.getItem(key)
     let parsedKey;

@@ -1,6 +1,10 @@
+import { useContext } from "react"
+import { TodoContext } from "../TodoContext"
 import "./ConfirmDelete.css"
 
-const ConfirmDelete = ({ onDeletedTodo }) => {
+const ConfirmDelete = () => {
+
+    const { handleDeleteTodo: onDeletedTodo } = useContext(TodoContext)
     return (
         <div className="ConfirmDelete">
             <div className="confirm-container">

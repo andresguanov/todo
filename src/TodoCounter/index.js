@@ -1,6 +1,10 @@
+import { useContext } from "react"
+import { TodoContext } from "../TodoContext"
 import "./TodoCounter.css"
 
-const TodoCounter = ({ todos }) => {
+const TodoCounter = () => {
+
+    const { todos } = useContext(TodoContext)
 
     const completedTodos = todos.filter(todo => todo.completed)
     return (

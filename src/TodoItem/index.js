@@ -1,16 +1,18 @@
 
+import { useContext } from "react"
+import { TodoContext } from "../TodoContext"
 import "./TodoItem.css"
 
 
-const TodoItem = ({
-    todo,
-    onCompletedTodo,
-    onConfirmDelete,
+const TodoItem = ({ todo }) => {
 
-}) => {
+    const {
 
+        handleCompletedTodo: onCompletedTodo,
+        handleConfirmDelete: onConfirmDelete,
 
-    //{`completedIcon ${todo.completed && "completed"}`}
+    } = useContext(TodoContext)
+
 
     return (
         <>

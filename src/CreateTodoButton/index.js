@@ -1,8 +1,11 @@
+import { useContext } from "react"
+import { TodoContext } from "../TodoContext"
 import "./CreateTodoButton.css"
 
-const CreateTodoButton = ({
-    onCreateTodo,
-}) => {
+const CreateTodoButton = () => {
+
+    const { handleConfirmTodo: onCreateTodo } = useContext(TodoContext)
+
     return (
 
         <div className="CreateTodoButton">

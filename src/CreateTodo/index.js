@@ -1,10 +1,14 @@
+import { useContext } from "react"
+import { TodoContext } from "../TodoContext"
 import "./CreateTodo.css"
 
-const CreateTodo = ({
-    onConfirmTodo,
-    onCreateTodo,
-    setNewTodo,
-}) => {
+const CreateTodo = () => {
+
+    const {
+        handleConfirmTodo: onConfirmTodo,
+        handleCreateTodo: onCreateTodo,
+        setNewTodo,
+    } = useContext(TodoContext)
 
     const handleSubmit = (e) => {
         e.preventDefault()

@@ -1,14 +1,15 @@
 //import { useState } from "react";
+import { useContext } from "react"
+import { TodoContext } from "../TodoContext"
 import "./TodoSearch.css"
 
 
-const TodoSearch = ({
-    searchValue,
-    setSearchValue,
+const TodoSearch = () => {
 
-}) => {
+    const { searchValue, setSearchValue } = useContext(TodoContext)
 
     const handleChange = (e) => {
+
         setSearchValue(e.target.value)
     }
 
