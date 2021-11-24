@@ -10,9 +10,9 @@ import { TodoSearch } from '../TodoSearch';
 
 const AppUI = () => {
     const {
-        listTodos,
-        deleted,
         created,
+        deleted,
+        listTodos,
     } = useContext(TodoContext)
 
     return (

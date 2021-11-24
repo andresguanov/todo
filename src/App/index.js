@@ -10,7 +10,6 @@ const App = () => {
   return (
     <TodoProvider>
       <AppUI />
-
     </TodoProvider>
   );
 }

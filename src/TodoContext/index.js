@@ -65,7 +65,7 @@ const TodoProvider = (props) => {
         setTodos([
             ...todos,
             {
-                id: todos.length,
+                id: todos.length + 1,
                 title: newTodo,
                 completed: false
             }
