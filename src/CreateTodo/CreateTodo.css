@@ -30,9 +30,23 @@
 }
 
 .CreateTodo form .todoInput {
+	height: 100px;
+
 	padding: 0.7rem 1rem;
 	border: 1px solid #000;
 	border-radius: 5px;
+	overflow-y: scroll;
+}
+
+@media (min-width: 400px) {
+	.CreateTodo form .todoInput::-webkit-scrollbar {
+		width: 7px;
+	}
+
+	.CreateTodo form .todoInput::-webkit-scrollbar-thumb {
+		border-radius: 10px;
+		background-color: #000;
+	}
 }
 
 .CreateTodo form .buttons {

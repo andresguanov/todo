@@ -13,7 +13,6 @@ const CreateTodo = () => {
     const handleSubmit = (e) => {
         e.preventDefault()
 
-
     }
 
     const handleChange = (e) => {
@@ -22,20 +21,21 @@ const CreateTodo = () => {
 
     return (
         <div className="CreateTodo">
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} >
                 <label
                     htmlFor="todoInput"
                     className="title">
                     Create your To Do
                 </label>
-                <input
+                <textarea
                     id="todoInput"
                     className="todoInput"
                     onChange={handleChange}
 
                     type="text"
                     placeholder="Create your To Do here ..."
-                />
+                ></textarea>
+
                 <div className="buttons">
                     <button
                         className="buttons__cancel"
